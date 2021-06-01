@@ -1,65 +1,37 @@
 package KMUbit;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class coin {
-	public static String[] coins = { "도기코인", "빝으코인", "뤼플", "이다리움", "A다", "빗토렌트" };
+	public static String[] coins = { "도기코인", "빝으코인", "국민코인", "이다리움", "비타캐쉬", "빗토렌트" };
 
-	public static ArrayList<Integer> price = new ArrayList<Integer>();
-	public static ArrayList<Integer> tm_price = new ArrayList<>();
-	public static ArrayList<Double> percent = new ArrayList<>();
+	static int[] price = { 1000, 1000, 1000, 1000, 1000, 1000 };
+	static int[] tm_price = new int[6];
+	static int[] percent = new int[6];
+
 	public static int due = 1;
 
 	public static void today() {
-		price = tm_price; // 내일 가격을 오늘 가격에 업데이트
-		System.out.print("@@@@" + due + "일째@@@@\n");
-		System.out.printf("코인 1은 오늘" + price.get(0) + "원, 코인 2는 오늘" + price.get(1) + "원\n");
-		System.out.printf("코인 1의 변동률 " + percent.get(0) + "퍼센트, 코인 2의 변동률" + percent.get(1) + "퍼센트\n");
-
+		for (int i = 0; i < 6; i++) {
+			price[i] = tm_price[i];
+		}
 	}
 
 	public static void tomorrow() {
 		due++;
 		Random random = new Random();
 
-		ArrayList<Integer> tm_price = new ArrayList<>();
-		for (int i = 0; i < 2; i++) { // 코인 개수 만큼
-			int a = (int) (Math.random() * 100);
-
-			tm_price.add(i, a); // 내일 가격 랜덤으로 업데이트
-
+		for (int i = 0; i < 6; i++) { // 다음 날 가격 랜덤 설정
+			tm_price[i] = (int) (Math.random() * 1500);
 		}
 
 		// percent 업데이트
-		ArrayList<Double> percent = new ArrayList<>();
-		for (int i = 0; i < 2; i++) {
-
-			if (tm_price.get(i) >= price.get(i)) { // 코인 오름 or 똑같음
-
-				double a = ((tm_price.get(i) - price.get(i)) / (double) price.get(i)) * 100;
-				percent.add(i, a); // 상승폭 저장
-
+		for (int i = 0; i < 6; i++) {
+			if (tm_price[i] >= price[i]) { // 코인 오름 or 똑같음
+				percent[i] = ((tm_price[i] - price[i]) / 10);
 			} else {
-
-				double b = ((price.get(i) - tm_price.get(i)) / (double) tm_price.get(i)) * 100;
-				percent.add(i, -b); // 하락폭 저장
+				percent[i] = ((price[i] - tm_price[i]) / 10);
 			}
-
 		}
-
-		System.out.printf("코인 1은 내일 " + tm_price.get(0) + "원 일 것입니다.\n");
-		System.out.printf("코인 2는 내일 " + tm_price.get(1) + "원 일 것입니다.\n");
-
-		System.out.printf("코인 1의 (예상)변동률 " + percent.get(0) + "퍼센트, 코인 2의 (예상)변동률" + percent.get(1) + "퍼센트\n");
 	}
-
-	public static void main(String[] args) {
-		today();
-		tomorrow();
-		today();
-		tomorrow();
-		today();
-	}
-
 }

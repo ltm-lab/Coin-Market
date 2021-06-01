@@ -1,6 +1,6 @@
 package KMUbit;
 
-public class gui {
+public class gui extends shop {
 	static void title() {
 		System.out.println("==================================================================");
 		System.out.println("|                          KMUbit(v1.0)                          |");
