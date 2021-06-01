@@ -3,7 +3,7 @@ package KMUbit;
 import java.util.Random;
 
 public class Coin {
-	public static String[] coins = { "µµ±âÄÚÀÎ", "•»À¸ÄÚÀÎ", "±¹¹ÎÄÚÀÎ", "ÀÌ´Ù¸®¿ò", "ºñÅ¸Ä³½¬", "ºøÅä·»Æ®" };
+	public static String[] coins = { "ë„ê¸°ì½”ì¸", "Â•ë¼ˆë§£æ„", "êµ­ë¯¼ì½”ì¸", "ì´ë‹¤ë¦¬ì›€", "ë¹„íƒ€ìºì‰¬", "ë¹—í† ë ŒíŠ¸" };
 
 	static int[] price = { 1000, 1000, 1000, 1000, 1000, 1000 };
 	static int[] tm_price = new int[6];
@@ -21,13 +21,13 @@ public class Coin {
 		due++;
 		Random random = new Random();
 
-		for (int i = 0; i < 6; i++) { // ´ÙÀ½ ³¯ °¡°İ ·£´ı ¼³Á¤
+		for (int i = 0; i < 6; i++) { // ë‹¤ìŒ ë‚  ê°€ê²© ëœë¤ ì„¤ì •
 			tm_price[i] = (int) (Math.random() * 1500);
 		}
 
-		// percent ¾÷µ¥ÀÌÆ®
+		// percent ì—…ë°ì´íŠ¸
 		for (int i = 0; i < 6; i++) {
-			if (tm_price[i] >= price[i]) { // ÄÚÀÎ ¿À¸§ or ¶È°°À½
+			if (tm_price[i] >= price[i]) { // ì½”ì¸ ì˜¤ë¦„ or ë˜‘ê°™ìŒ
 				percent[i] = ((tm_price[i] - price[i]) / 10);
 			} else {
 				percent[i] = ((price[i] - tm_price[i]) / 10);
