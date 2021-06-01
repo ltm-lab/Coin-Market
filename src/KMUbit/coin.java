@@ -1,23 +1,21 @@
 package KMUbit;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 
 public class coin {
+	public static String[] coins = { "도기코인", "빝으코인", "뤼플", "이다리움", "A다", "빗토렌트" };
 
-	public static ArrayList<Integer> price = new ArrayList<>(Arrays.asList(1, 1));
-	public static ArrayList<Integer> tm_price = new ArrayList<>(Arrays.asList(30, 30));
-	public static ArrayList<Double> percent = new ArrayList<>(Arrays.asList(0.0, 0.0));
+	public static ArrayList<Integer> price = new ArrayList<Integer>();
+	public static ArrayList<Integer> tm_price = new ArrayList<>();
+	public static ArrayList<Double> percent = new ArrayList<>();
 	public static int due = 1;
 
-	public static void main(String[] args) {
-
-		today();
-		tomorrow();
-		today();
-		tomorrow();
-		today();
+	public static void today() {
+		price = tm_price; // 내일 가격을 오늘 가격에 업데이트
+		System.out.print("@@@@" + due + "일째@@@@\n");
+		System.out.printf("코인 1은 오늘" + price.get(0) + "원, 코인 2는 오늘" + price.get(1) + "원\n");
+		System.out.printf("코인 1의 변동률 " + percent.get(0) + "퍼센트, 코인 2의 변동률" + percent.get(1) + "퍼센트\n");
 
 	}
 
@@ -56,15 +54,12 @@ public class coin {
 		System.out.printf("코인 1의 (예상)변동률 " + percent.get(0) + "퍼센트, 코인 2의 (예상)변동률" + percent.get(1) + "퍼센트\n");
 	}
 
-	public static void today() {
-		price = tm_price; // 내일 가격을 오늘 가격에 업데이트
-
-		System.out.print("@@@@" + due + "일째@@@@\n");
-
-		System.out.printf("코인 1은 오늘" + price.get(0) + "원, 코인 2는 오늘" + price.get(1) + "원\n");
-
-		System.out.printf("코인 1의 변동률 " + percent.get(0) + "퍼센트, 코인 2의 변동률" + percent.get(1) + "퍼센트\n");
-
+	public static void main(String[] args) {
+		today();
+		tomorrow();
+		today();
+		tomorrow();
+		today();
 	}
 
 }
