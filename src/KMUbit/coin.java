@@ -2,7 +2,7 @@ package KMUbit;
 
 import java.util.Random;
 
-public class coin {
+public class Coin {
 	public static String[] coins = { "도기코인", "빝으코인", "국민코인", "이다리움", "비타캐쉬", "빗토렌트" };
 
 	static int[] price = { 1000, 1000, 1000, 1000, 1000, 1000 };
