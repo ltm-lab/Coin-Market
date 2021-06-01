@@ -9,10 +9,10 @@ public class GUI extends Shop {
 
 	static void crntcoin() {
 		title();
-		System.out.println("|      ì½”ì¸      |    í˜„ì¬ì‹œì„¸    |   ë³´ìœ ê°œìˆ˜   |   í‰ê°€ê¸ˆì•¡   |  ë“±ë½í­  |");
+		System.out.println("|      ÄÚÀÎ      |    ÇöÀç½Ã¼¼    |   º¸À¯°³¼ö   |   Æò°¡±İ¾×   |  µî¶ôÆø  |");
 		System.out.println("------------------------------------------------------------------");
 		for (int i = 0; i < 6; i++) {
-			System.out.println("|     " + coins[i] + "    |    " + price[i] + "    |   ë³´ìœ ê°œìˆ˜   |   í‰ê°€ê¸ˆì•¡   |  "
+			System.out.println("|     " + coins[i] + "    |    " + price[i] + "    |   º¸À¯°³¼ö   |   Æò°¡±İ¾×   |  "
 					+ percent[i] + "%  |");
 		}
 		System.out.println("==================================================================");
