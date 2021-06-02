@@ -1,7 +1,5 @@
 package KMUbit;
 
-import java.util.Random;
-
 public class Coin {
 	public static String[] coins = { "도기코인", "빝으코인", "국민코인", "이다리움", "비타캐쉬", "빗토렌트" };
 
@@ -9,18 +7,16 @@ public class Coin {
 	static int[] tm_price = new int[6];
 	static int[] percent = new int[6];
 
-	public static int due = 1;
+	public static int day = 1;
 
 	public static void today() {
 		for (int i = 0; i < 6; i++) {
 			price[i] = tm_price[i];
 		}
+		day++;
 	}
 
 	public static void tomorrow() {
-		due++;
-		Random random = new Random();
-
 		for (int i = 0; i < 6; i++) { // 다음 날 가격 랜덤 설정
 			tm_price[i] = (int) (Math.random() * 1500);
 		}
