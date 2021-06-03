@@ -35,11 +35,14 @@ public class GUI extends Player {
 	}
 
 	static void inGame() {
-		Scanner sc = new Scanner(System.in);
 		while (gameOver) {
-
+			tomorrow();
+			while (turnOver) {
+				crntCoin();
+			}
+			today();
 		}
-		endGame();
+		endGame(true);
 	}
 
 	static void gameInfo() {
@@ -58,29 +61,63 @@ public class GUI extends Player {
 			clear();
 			startGame();
 		} else
-			System.out.println("게임을 종료합니다.");
+			endGame(false);
 	}
 
-	static void endGame() {
-		title();
-		System.out.println("|                                                                |");
-		System.out.println("|      " + day + "일 만에 목표금액을 달성하여 게임을 클리어 하였습니다!       |");
-		System.out.println("|                                                                |");
-		System.out.println("|                      Thanks for playing!                       |");
-		System.out.println("|                                                                |");
+	static void endGame(boolean type) {
+		if (type) {
+			title();
+			System.out.println("|                                                                |");
+			System.out.println("|      " + day + "일 만에 목표금액을 달성하여 게임을 클리어 하였습니다!       |");
+			System.out.println("|                                                                |");
+			System.out.println("|                      Thanks for playing!                       |");
+			System.out.println("|                                                                |");
+			System.out.println("==================================================================");
+		} else {
+			title();
+			System.out.println("|                                                                |");
+			System.out.println("|                잘못된 입력으로 인해 게임이 종료되었습니다!                |");
+			System.out.println("|                                                                |");
+			System.out.println("|                      Thanks for playing!                       |");
+			System.out.println("|                                                                |");
+			System.out.println("==================================================================");
+		}
+	}
+
+	static void crntCoin() {
+		Scanner sc = new Scanner(System.in);
 		System.out.println("==================================================================");
-	}
-
-	static void crntcoin() {
-		title();
-		System.out.println("|      코인      |    현재시세    |   보유개수   |   평가금액   |  등락폭  |");
+		System.out.println("|                        KMUbit(Day " + day + ")                        |");
+		System.out.println("==================================================================");
+		System.out.println("| 번호 |    코인    |   현재시세   |  보유개수  |   평가금액   |   등락폭   |");
 		System.out.println("------------------------------------------------------------------");
 		for (int i = 0; i < 6; i++) {
-			System.out.println("|     " + coins[i] + "    |    " + price[i] + "    |   " + my_coins[i] + "   |   "
-					+ (my_coins[i] * price[i]) + "   |  " + percent[i] + "%  |");
+			System.out.println("| " + (i + 1) + " |    " + coins[i] + "    |    " + price[i] + "    |   " + my_coins[i]
+					+ "   |   " + (my_coins[i] * price[i]) + "   |  " + percent[i] + "%  |");
 		}
 		System.out.println("==================================================================");
-		clear();
+		System.out.print("1: 코인 매수, 2: 코인 매도, 3: 아이템 구매, 4: 턴 종료");
+		int input = sc.nextInt();
+		if (input == 1) {
+			System.out.print("매수할 코인번호 와 구매 개수를 입력해주세요. ex)1 10 ");
+			int tmp1 = sc.nextInt();
+			int tmp2 = sc.nextInt();
+			buy_coin(tmp1, tmp2);
+		} else if (input == 2) {
+			System.out.print("매도할 코인번호 와 구매 개수를 입력해주세요. ex)1 10 ");
+			int tmp1 = sc.nextInt();
+			int tmp2 = sc.nextInt();
+			sell_coin(tmp1, tmp2);
+		} else if (input == 3) {
+			System.out.print("정보를 확인하고 싶은 코인 번호와 힌트 정보를 입력해주세요.(1: 초급힌트, 2: 고급힌트) ex)2 1 ");
+			int tmp1 = sc.nextInt();
+			int tmp2 = sc.nextInt();
+			buy_hint(tmp1, tmp2);
+		} else if (input == 4) {
+			turnOver = false;
+		} else {
+			endGame(false);
+		}
 	}
 
 	public static void main(String[] args) {
