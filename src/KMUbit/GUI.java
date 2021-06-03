@@ -124,7 +124,7 @@ public class GUI extends Player {
 		} else if (input == 4) {
 			turnOver = false;
 			clear();
-			System.out.print("다음 날이 되었습니다.");
+			System.out.println("다음 날이 되었습니다.");
 		} else {
 			clear();
 			endGame(false);
