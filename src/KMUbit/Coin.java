@@ -6,12 +6,14 @@ public class Coin {
 	static int[] price = { 1000, 1000, 1000, 1000, 1000, 1000 };
 	static int[] tm_price = new int[6];
 	static int[] percent = new int[6];
+	static int[] tm_percent = new int[6];
 
 	public static int day = 1;
 
 	public static void today() {
 		for (int i = 0; i < 6; i++) {
 			price[i] = tm_price[i];
+			percent[i] = tm_percent[i];
 		}
 		day++;
 	}
@@ -24,9 +26,9 @@ public class Coin {
 		// percent 업데이트
 		for (int i = 0; i < 6; i++) {
 			if (tm_price[i] >= price[i]) { // 코인 오름 or 똑같음
-				percent[i] = ((tm_price[i] - price[i]) / 10);
+				tm_percent[i] = ((tm_price[i] - price[i]) / 10);
 			} else {
-				percent[i] = ((price[i] - tm_price[i]) / 10);
+				tm_percent[i] = -((price[i] - tm_price[i]) / 10);
 			}
 		}
 	}
