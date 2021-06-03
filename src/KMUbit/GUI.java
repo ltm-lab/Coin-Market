@@ -25,14 +25,21 @@ public class GUI extends Player {
 		int input = sc.nextInt();
 		if (input == 1) {
 			clear();
-			// inGame();
+			inGame();
 		} else if (input == 2) {
 			clear();
 			gameInfo();
 		} else {
 			System.out.println("게임을 종료합니다.");
 		}
+	}
 
+	static void inGame() {
+		Scanner sc = new Scanner(System.in);
+		while (gameOver) {
+
+		}
+		endGame();
 	}
 
 	static void gameInfo() {
@@ -54,13 +61,23 @@ public class GUI extends Player {
 			System.out.println("게임을 종료합니다.");
 	}
 
+	static void endGame() {
+		title();
+		System.out.println("|                                                                |");
+		System.out.println("|      " + day + "일 만에 목표금액을 달성하여 게임을 클리어 하였습니다!       |");
+		System.out.println("|                                                                |");
+		System.out.println("|                      Thanks for playing!                       |");
+		System.out.println("|                                                                |");
+		System.out.println("==================================================================");
+	}
+
 	static void crntcoin() {
 		title();
 		System.out.println("|      코인      |    현재시세    |   보유개수   |   평가금액   |  등락폭  |");
 		System.out.println("------------------------------------------------------------------");
 		for (int i = 0; i < 6; i++) {
-			System.out.println("|     " + coins[i] + "    |    " + price[i] + "    |   " + my_coins[i]
-					+ "   |   평가금액   |  " + percent[i] + "%  |");
+			System.out.println("|     " + coins[i] + "    |    " + price[i] + "    |   " + my_coins[i] + "   |   "
+					+ (my_coins[i] * price[i]) + "   |  " + percent[i] + "%  |");
 		}
 		System.out.println("==================================================================");
 		clear();
