@@ -7,6 +7,7 @@ public class Coin {
 	static int[] tm_price = new int[6];
 	static int[] percent = new int[6];
 	static int[] tm_percent = new int[6];
+	static int[] random1 = new int[20];
 
 	public static int day = 1;
 
@@ -19,8 +20,46 @@ public class Coin {
 	}
 
 	public static void tomorrow() {
+
 		for (int i = 0; i < 6; i++) { // 다음 날 가격 랜덤 설정
-			tm_price[i] = (int) (Math.random() * 1500);
+			int a = (int) Math.random() * 30;
+			double b = 0;
+			if (a <= 10) // 3분의 1 확률로
+			{
+				do {
+					b = Math.random() * 500;
+					tm_price[i] = (int) (price[i] + b); // 원래 가격+ 1 ~ 500
+
+				} while (tm_price[i] <= 0);
+
+			}
+			if (a > 10 & a <= 20) // 3분의 1 확률로
+			{
+				do {
+					b = Math.random() * 500;
+					tm_price[i] = (int) (price[i] - b); // 원래 가격- 1 ~ 500
+
+				} while (tm_price[i] <= 0);
+
+			}
+			if (a > 20 & a <= 25) {
+				do {
+					b = Math.random() * 300 + 500;
+					tm_price[i] = (int) (price[i] + b); // 원래 가격+ 500 ~ 800
+
+				} while (tm_price[i] <= 0);
+
+			}
+
+			if (a > 26 & a <= 30) // 30분의 2 확률로
+			{
+				do {
+					b = Math.random() * 300 + 500;
+					tm_price[i] = (int) (price[i] - b); // 원래 가격- 500 ~ 800
+
+				} while (tm_price[i] <= 0);
+
+			}
 		}
 
 		// percent 업데이트
