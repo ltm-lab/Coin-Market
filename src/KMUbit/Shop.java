@@ -89,7 +89,7 @@ public class Shop extends Coin {
 			if (Player.money >= 200000) {
 				Player.money -= 200000;
 				Player.have_item[1] = 1;
-				System.out.println("다음 턴 부터 소지금 100,000원의 채굴을 시작합니다!");
+				System.out.println("다음 턴 부터 소지금 50,000원의 채굴을 시작합니다!");
 			} else {
 				System.out.println("소지금이 부족하여 채굴기 구매에 실패하였습니다.");
 			}

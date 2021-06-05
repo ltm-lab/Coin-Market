@@ -123,7 +123,7 @@ public class GUI extends Player {
 			buy_hint(tmp1, tmp2);
 		} else if (input == 4) {
 			System.out.print(
-					"구매하실 채굴기 종류를 선택해주세요.(200,000원)\n1: 코인채굴기(매 턴마다 선택하신 코인을 10개씩 채굴합니다.)\n2: 현금채굴기(매 턴마다 100,000원의 소지금을 채굴합니다.) ");
+					"구매하실 채굴기 종류를 선택해주세요.(200,000원)\n1: 코인채굴기(매 턴마다 선택하신 코인을 10개씩 채굴합니다.)\n2: 현금채굴기(매 턴마다 50,000원의 소지금을 채굴합니다.) ");
 			int type = sc.nextInt();
 			clear();
 			buy_item(type);
@@ -137,7 +137,7 @@ public class GUI extends Player {
 			}
 			if (have_item[1] == 1) {
 				money += 100000;
-				System.out.println("현금채굴기가 100,000원을 채굴하였습니다!");
+				System.out.println("현금채굴기가 50,000원을 채굴하였습니다!");
 			}
 		} else {
 			clear();
