@@ -35,11 +35,11 @@ public class Coin {
 			}
 			if (a > 10 & a <= 20) // 3분의 1 확률로
 			{
-				do {
-					b = Math.random() * 500;
-					tm_price[i] = (int) (price[i] - b); // 원래 가격- 1 ~ 500
-
-				} while (tm_price[i] <= 0);
+				b = Math.random() * 500;
+				tm_price[i] = (int) (price[i] - b); // 원래 가격- 1 ~ 500
+				if (tm_price[i] <= 0) {
+					tm_price[i] = (int) a;
+				}
 
 			}
 			if (a > 20 & a <= 25) {
@@ -52,11 +52,11 @@ public class Coin {
 			}
 
 			if (a > 26 & a <= 30) {
-				do {
-					b = Math.random() * 300 + 500;
-					tm_price[i] = (int) (price[i] - b); // 원래 가격- 500 ~ 800
-
-				} while (tm_price[i] <= 0);
+				b = Math.random() * 300 + 500;
+				tm_price[i] = (int) (price[i] - b); // 원래 가격- 500 ~ 800
+				if (tm_price[i] <= 0) {
+					tm_price[i] = (int) a;
+				}
 
 			}
 		}
