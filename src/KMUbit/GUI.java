@@ -101,7 +101,7 @@ public class GUI extends Player {
 					+ "   |   " + (my_coins[i] * price[i]) + "   |  " + percent[i] + "%  |");
 		}
 		System.out.println("==================================================================");
-		System.out.print("1: 코인 매수, 2: 코인 매도, 3: 아이템 구매, 4: 턴 종료 ");
+		System.out.print("1: 코인 매수, 2: 코인 매도, 3: 정보 구매, 4: 채굴기 구매, 5: 턴 종료 ");
 		int input = sc.nextInt();
 		if (input == 1) {
 			System.out.print("매수할 코인번호 와 구매 개수를 입력해주세요.\nex)1 10 ");
@@ -116,15 +116,29 @@ public class GUI extends Player {
 			clear();
 			sell_coin(tmp1, tmp2);
 		} else if (input == 3) {
-			System.out.print("정보를 확인하고 싶은 코인 번호와 정보 등급을 입력해주세요. / 1: 하급정보(5,000원), 2: 고급정보(10,000원)\nex)2 1 ");
+			System.out.print("정보를 확인하고 싶은 코인 번호와 정보 등급을 입력해주세요. / 1: 하급정보(5,000원), 2: 고급정보(10,000원)\nex)4 1 ");
 			int tmp1 = sc.nextInt();
 			int tmp2 = sc.nextInt();
 			clear();
 			buy_hint(tmp1, tmp2);
 		} else if (input == 4) {
+			System.out.print(
+					"구매하실 채굴기 종류를 선택해주세요.(200,000원)\n1: 코인채굴기(매 턴마다 선택하신 코인을 10개씩 채굴합니다.)\n2: 현금채굴기(매 턴마다 100,000원의 소지금을 채굴합니다.) ");
+			int type = sc.nextInt();
+			clear();
+			buy_item(type);
+		} else if (input == 5) {
 			turnOver = false;
 			clear();
 			System.out.println("다음 날이 되었습니다.");
+			if (have_item[0] != -1) {
+				my_coins[have_item[0]] += 10;
+				System.out.println("코인채굴기가 [" + coins[have_item[0]] + "]를 10개 채굴하였습니다!");
+			}
+			if (have_item[1] == 1) {
+				money += 100000;
+				System.out.println("현금채굴기가 100,000원을 채굴하였습니다!");
+			}
 		} else {
 			clear();
 			endGame(false);

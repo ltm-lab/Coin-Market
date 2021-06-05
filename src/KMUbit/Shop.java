@@ -1,5 +1,7 @@
 package KMUbit;
 
+import java.util.Scanner;
+
 public class Shop extends Coin {
 	static void buy_coin(int coin, int cnt) {
 		if (coin > 0 && coin < 7) {
@@ -64,6 +66,35 @@ public class Shop extends Coin {
 			}
 		} else {
 			System.out.println("해당 번호에 해당하는 코인이 없어 힌트 구매에 실패하였습니다.");
+		}
+	}
+
+	static void buy_item(int type) {
+		Scanner sc = new Scanner(System.in);
+		if (type == 1) {
+			System.out.print("채굴하실 코인의 번호를 입력해주세요 : ");
+			int cn = sc.nextInt();
+			if (Player.money >= 200000) {
+				if (cn > 0 && cn < 7) {
+					Player.money -= 200000;
+					Player.have_item[0] = cn - 1;
+					System.out.println("다음 턴 부터 [" + coins[cn - 1] + "]의 채굴을 시작합니다!");
+				} else {
+					System.out.println("해당 번호에 해당하는 코인이 없어 채굴기 구매에 실패하였습니다.");
+				}
+			} else {
+				System.out.println("소지금이 부족하여 채굴기 구매에 실패하였습니다.");
+			}
+		} else if (type == 2) {
+			if (Player.money >= 200000) {
+				Player.money -= 200000;
+				Player.have_item[1] = 1;
+				System.out.println("다음 턴 부터 소지금 100,000원의 채굴을 시작합니다!");
+			} else {
+				System.out.println("소지금이 부족하여 채굴기 구매에 실패하였습니다.");
+			}
+		} else {
+			System.out.println("해당하는 번호의 채굴기가 없어 구매에 실패하였습니다.");
 		}
 	}
 }
