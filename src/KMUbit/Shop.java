@@ -86,12 +86,16 @@ public class Shop extends Coin {
 				System.out.println("소지금이 부족하여 채굴기 구매에 실패하였습니다.");
 			}
 		} else if (type == 2) {
-			if (Player.money >= 200000) {
-				Player.money -= 200000;
-				Player.have_item[1] = 1;
-				System.out.println("다음 턴 부터 소지금 50,000원의 채굴을 시작합니다!");
+			if (Player.have_item[1] == 0) {
+				if (Player.money >= 200000) {
+					Player.money -= 200000;
+					Player.have_item[1] = 1;
+					System.out.println("다음 턴 부터 소지금 50,000원의 채굴을 시작합니다!");
+				} else {
+					System.out.println("소지금이 부족하여 채굴기 구매에 실패하였습니다.");
+				}
 			} else {
-				System.out.println("소지금이 부족하여 채굴기 구매에 실패하였습니다.");
+				System.out.println("이미 현금채굴기를 보유하고 있습니다.");
 			}
 		} else {
 			System.out.println("해당하는 번호의 채굴기가 없어 구매에 실패하였습니다.");
