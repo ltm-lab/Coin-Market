@@ -136,7 +136,7 @@ public class GUI extends Player {
 				System.out.println("코인채굴기가 [" + coins[have_item[0]] + "]를 10개 채굴하였습니다!");
 			}
 			if (have_item[1] == 1) {
-				money += 100000;
+				money += 50000;
 				System.out.println("현금채굴기가 50,000원을 채굴하였습니다!");
 			}
 		} else {
