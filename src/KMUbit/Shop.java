@@ -42,9 +42,9 @@ public class Shop extends Coin {
 					Player.money -= 5000;
 
 					if (tm_price[coin - 1] > price[coin - 1]) {
-						System.out.println(coins[coin - 1] + "은(는) 내일 가격이 [상승]할 예정입니다.");
+						System.out.println("  " + coins[coin - 1] + "은(는) 내일 가격이 [상승]할 예정입니다.");
 					} else {
-						System.out.println(coins[coin - 1] + "은(는) 내일 가격이 [하락]할 예정입니다.");
+						System.out.println("  " + coins[coin - 1] + "은(는) 내일 가격이 [하락]할 예정입니다.");
 					}
 				} else {
 					System.out.println("  소지금이 적어 하급정보 구매를 실패하였습니다.");
@@ -54,9 +54,11 @@ public class Shop extends Coin {
 					Player.money -= 10000;
 
 					if (tm_price[coin - 1] > price[coin - 1]) {
-						System.out.println(coins[coin - 1] + "은(는) 내일 가격이 [" + tm_percent[coin - 1] + "% 상승]할 예정입니다.");
+						System.out.println(
+								"  " + coins[coin - 1] + "은(는) 내일 가격이 [" + tm_percent[coin - 1] + "% 상승]할 예정입니다.");
 					} else {
-						System.out.println(coins[coin - 1] + "은(는) 내일 가격이 [" + -tm_percent[coin - 1] + "% 하락]할 예정입니다.");
+						System.out.println(
+								"  " + coins[coin - 1] + "은(는) 내일 가격이 [" + -tm_percent[coin - 1] + "% 하락]할 예정입니다.");
 					}
 				} else {
 					System.out.println("  소지금이 적어 고급정보 구매를 실패하였습니다.");

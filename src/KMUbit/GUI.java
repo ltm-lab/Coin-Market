@@ -30,7 +30,7 @@ public class GUI extends Player {
 			clear();
 			gameInfo();
 		} else {
-			System.out.println("게임을 종료합니다.");
+			System.out.println("  게임을 종료합니다.");
 		}
 	}
 
@@ -52,10 +52,10 @@ public class GUI extends Player {
 		Scanner sc = new Scanner(System.in);
 		title();
 		System.out.println("  |                                                                |");
-		System.out.println("  |       이 게임은 아무거나 팀에서 개발한 코인매매 시뮬레이션 게임입니다.       |");
-		System.out.println("  |   한정된 돈으로 코인을 매매하여 소지금 목표치(100만원)를 달성하시면 클리어!   |");
+		System.out.println("  |         이 게임은 아무거나 팀에서 개발한 코인매매 시뮬레이션 게임입니다.       |");
+		System.out.println("  |     한정된 돈으로 코인을 매매하여 소지금 목표치(100만원)를 달성하시면 클리어!   |");
 		System.out.println("  |                                                                |");
-		System.out.println("  |                      Developed By 아무거나팀                     |");
+		System.out.println("  |                       Developed By 아무거나팀                     |");
 		System.out.println("  |                                                                |");
 		System.out.println("  ==================================================================");
 		System.out.print("  초기화면으로 가시려면 1을 입력해주세요.\n");
