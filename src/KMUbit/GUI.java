@@ -92,13 +92,13 @@ public class GUI extends Player {
 	static void crntCoin() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("  ==================================================================");
-		System.out.println("  |                 KMUbit(Day " + day + ")             현재 소지금 : " + money + "원   |");
+		System.out.printf("  |                 KMUbit(Day " + day + ")            현재 소지금 : %06d원   |\n", money);
 		System.out.println("  ==================================================================");
 		System.out.println("  | 번호 |    코인    |   현재시세   |  보유개수  |   평가금액   |   등락폭   |");
 		System.out.println("  ------------------------------------------------------------------");
 		for (int i = 0; i < 6; i++) {
-			System.out.println("  | " + (i + 1) + " |    " + coins[i] + "    |    " + price[i] + "    |   "
-					+ my_coins[i] + "   |   " + (my_coins[i] * price[i]) + "   |  " + percent[i] + "%  |");
+			System.out.printf("  | %d |   %s    |    %04d    |   %03d   |   %06d   |   %02d%%   |\n", (i + 1), coins[i],
+					price[i], my_coins[i], my_coins[i] * price[i], percent[i]);
 		}
 		System.out.println("  ==================================================================");
 		System.out.println("  1: 코인 매수, 2: 코인 매도, 3: 정보 구매, 4: 채굴기 구매, 5: 턴 종료 ");
